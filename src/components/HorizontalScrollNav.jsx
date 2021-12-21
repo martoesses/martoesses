@@ -30,8 +30,7 @@ const RightButton = styled.button`
   height:30px;
 `;
 
-const HorizontalScrollNav = ({items}) => {    
-    return ( 
+const HorizontalScrollNav = ({items}) =>  ( 
         <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
         {items.map((item) => (
             <ContainerItem
@@ -45,8 +44,7 @@ const HorizontalScrollNav = ({items}) => {
             </ContainerItem>
         ))}
         </ScrollMenu>
-    );
-}
+    )
 
 function LeftArrow() {
     const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
