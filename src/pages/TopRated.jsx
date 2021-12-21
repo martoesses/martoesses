@@ -18,9 +18,11 @@ const TopRated = () => {
             <h1>Top Rated</h1>
             {
                 !error ? (
-                <MoviesList items={movies.toprated} /> 
+                    <MoviesList 
+                        items={movies.toprated} 
+                    /> 
                 ) : (
-                    <h1>hay error</h1>
+                    <h1>Not results</h1>
                 )
                 
             }

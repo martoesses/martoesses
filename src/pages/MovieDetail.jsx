@@ -20,10 +20,6 @@ const Gallery = styled.img`
     margin-left:5px;
 `;
 
-const Wishlist = styled.i`
-
-`;
-
 const WishlistButton = styled.button`
     display: flex;
     flex-direction: row;
@@ -59,7 +55,7 @@ const MovieDetail = () => {
                                     <h1>{detail.title}</h1>
                                 </div>
                                 <div className='col-md-3'>
-                                    <WishlistButton onClick={()=>dispatch(addMovieWishlistAction(detail))}>Add to watchlist <Wishlist></Wishlist></WishlistButton>
+                                    <WishlistButton onClick={()=>dispatch(addMovieWishlistAction(detail))}>Add to watchlist</WishlistButton>
                                 </div>
                             </div>
                             <p>{detail.overview}</p>

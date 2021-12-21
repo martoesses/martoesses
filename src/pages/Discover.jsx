@@ -18,9 +18,11 @@ const Discover = () => {
             <h1>Discover</h1>
             {
                 !error && movies ? (
-                <MoviesList items={movies.discover} /> 
+                    <MoviesList 
+                        items={movies.discover} 
+                    /> 
                 ) : (
-                    <h1>hay error</h1>
+                    <h1>Not results</h1>
                 )
                 
             }

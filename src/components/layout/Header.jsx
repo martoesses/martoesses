@@ -11,21 +11,19 @@ const HeaderNav = styled.div`
     color:#FFFFFF;
 `;
 
-const Header = () => {
-    return ( 
-        <HeaderNav>
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-2 p-3">
-                        <img src="/logo.svg" alt="" className="img-fluid" />
-                    </div>
-                    <div className="col-md-10 text-end">
-                        <Navbar />
-                    </div>
-                </div>                
-            </div>            
-        </HeaderNav>
-     );
-}
+const Header = () => ( 
+    <HeaderNav>
+        <div className="container">
+            <div className="row">
+                <div className="col-md-2 p-3">
+                    <img src="/logo.svg" alt="" className="img-fluid" />
+                </div>
+                <div className="col-md-10 text-end">
+                    <Navbar />
+                </div>
+            </div>                
+        </div>            
+    </HeaderNav>
+);
  
 export default Header;

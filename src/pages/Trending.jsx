@@ -18,9 +18,11 @@ const Trending = () => {
             <h1>Trending</h1>
             {
                 !error ? (
-                <MoviesList items={movies.trending} /> 
+                    <MoviesList 
+                        items={movies.trending} 
+                    /> 
                 ) : (
-                    <h1>hay error</h1>
+                    <h1>Not results</h1>
                 )
                 
             }

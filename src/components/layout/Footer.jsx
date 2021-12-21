@@ -13,12 +13,10 @@ const FooterCSS = styled.div`
     margin-top:30px;
 `;
 
-const Footer = () => {
-    return ( 
-        <FooterCSS>
-            Todos los derechos Reservados
-        </FooterCSS>
-     );
-}
+const Footer = () => ( 
+    <FooterCSS>
+        Todos los derechos Reservados
+    </FooterCSS>
+);
  
 export default Footer;

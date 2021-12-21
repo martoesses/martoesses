@@ -2,6 +2,7 @@ import React from 'react';
 import movieConfig from '../../config/themoviedb';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import routes from '../../constants/routesPaths';
 
 const CardMovie = styled.div`
     border-radius:10px;
@@ -48,9 +49,11 @@ const Description = styled.div`
 `;
 
 const Movie = ({item}) => {
+    const url = routes.movieDetail.replace(':id',item.id);    
+    
     return ( 
         <CardMovie>
-            <Link to={`/movie/${item.id}`}>
+            <Link to={url}>
                 <ImageContainer>                    
                     <Image src={`${movieConfig.imgURL}${item.poster_path}`} alt={item.title} className="img-fluid" />                    
                 </ImageContainer>
@@ -60,7 +63,7 @@ const Movie = ({item}) => {
                 </Description>
             </Link>
         </CardMovie>
-    );
-}
+    )
+};
  
 export default Movie;

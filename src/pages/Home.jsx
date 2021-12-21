@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react'
-import HorizontalScrollNav from '../components/HorizontalScrollNav';
+import HorizontalScrollNav from '../components/HorizontalScrollNav/HorizontalScrollNav';
 import { useDispatch, useSelector } from 'react-redux';
 import { downloadMovieAction } from '../store/actions/moviesAction';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';

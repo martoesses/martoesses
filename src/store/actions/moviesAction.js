@@ -9,16 +9,16 @@ import {
     ADD_MOVIE_WISHLIST_OK,
     ADD_MOVIE_WISHLIST_ERROR
 } from '../types';
-import clienteAxios from '../../config/axios';
+import { getMovie, getImages, getDiscover, getTrending, getTopRated } from '../../api/movies';
 
 export function downloadMovieAction(){
     return async (dispatch) => {
         dispatch(downloadMovies());
 
         try {
-            const discover = await clienteAxios.get('/discover/movie?api_key=c29a6f5d4aba137c2ae0d35c9801e1cb');            
-            const trending = await clienteAxios.get('/trending/movie/week?api_key=c29a6f5d4aba137c2ae0d35c9801e1cb');            
-            const toprated = await clienteAxios.get('/movie/top_rated?api_key=c29a6f5d4aba137c2ae0d35c9801e1cb');            
+            const discover = await getDiscover();            
+            const trending = await getTrending();
+            const toprated = await getTopRated();
 
             const movies = {
                 trending:trending.data.results,
@@ -47,15 +47,13 @@ const downloadMoviesError = ()=>({
     type:DOWNLOAD_MOVIES_ERROR
 });
 
-
-
 export function getMovieAction(id){
     return async (dispatch) => {
-        dispatch(getMovie(id));
+        dispatch(getMovieStart(id));
 
-        try {
-            const detail = await clienteAxios.get(`/movie/${id}?api_key=c29a6f5d4aba137c2ae0d35c9801e1cb`);                        
-            const images = await clienteAxios.get(`/movie/${id}/images?api_key=c29a6f5d4aba137c2ae0d35c9801e1cb`);                        
+        try {            
+            const detail = await getMovie(id);                        
+            const images = await getImages(id);                        
             
             const movie = {                
                 detail:detail.data,
@@ -69,7 +67,7 @@ export function getMovieAction(id){
     }
 }
 
-const getMovie = ()=>({
+const getMovieStart = ()=>({
     type:START_GET_MOVIE,
     payload:true
 });
@@ -89,7 +87,6 @@ export function addMovieWishlistAction(movie){
         try {   
                      
             dispatch(addMovieWishlistOK(movie));
-            localStorage.setItem('movies',JSON.stringify(movie));
         } catch (error) {
             dispatch(addMovieWishlistError());
         }
