@@ -46,24 +46,18 @@ const HorizontalScrollNav = ({items}) =>  (
         </ScrollMenu>
     )
 
-function LeftArrow() {
-    const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
-  
-    return (
-      <LeftButton disabled={isFirstItemVisible} onClick={() => scrollPrev()}>
-        left
-      </LeftButton>
-    );
-}
-  
-function RightArrow() {
+function Arrow(direction) {
     const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
   
-    return (
+    return direction === "Right" ? (
       <RightButton disabled={isLastItemVisible} onClick={() => scrollNext()}>
-        Right
+        {direction}
       </RightButton>
-    );
+    ) : (
+    <LeftButton disabled={isFirstItemVisible} onClick={() => scrollPrev()}>
+        {direction}
+      </LeftButton>
+    )
 }
  
 export default HorizontalScrollNav;
