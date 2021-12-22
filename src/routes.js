@@ -13,7 +13,7 @@ const routes = [
   {
     path: routesPaths.index,
     component: <Home />,
-    exact: true    
+    exact: true
   },
   {
     path: routesPaths.wishlist,
